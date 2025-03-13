@@ -10,9 +10,8 @@ class ZendeskTool(BaseTool):
     zdesk_url = os.environ['ZENDESK_URL']
     zdesk_email = os.environ['ZENDESK_EMAIL']
     zdesk_password = os.environ['ZENDESK_PASSWORD']
-    zdesk_oauth = os.environ['ZENDESK_OAUTH']
     zdesk_token = os.environ['ZENDESK_TOKEN'] 
-    zendesk = Zendesk(zdesk_url=zdesk_url, zdesk_password=zdesk_password, zdesk_email=zdesk_email, zdesk_oauth=zdesk_oauth, zdesk_token=zdesk_token)
+    zendesk = Zendesk(zdesk_url=zdesk_url, zdesk_password=zdesk_password, zdesk_email=zdesk_email, zdesk_token=zdesk_token)
          
     @activity(
         config={
