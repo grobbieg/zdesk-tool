@@ -20,7 +20,7 @@ class ZendeskTool(BaseTool):
             ),
         },
     )
-    def new_ticket(self, params: dict) -> BaseArtifact: 
+    def new_ticket(self, params: dict): 
         try:
             zdesk_url = os.environ['ZENDESK_URL']
             zdesk_email = os.environ['ZENDESK_EMAIL']
@@ -41,7 +41,7 @@ class ZendeskTool(BaseTool):
                 }
             }
 
-            result = zendesk.ticket_create(data=new_ticket)
+            zendesk.ticket_create(data=new_ticket)
         except Exception as e:
             return ErrorArtifact(f"error creating ticket: {e}")
 
