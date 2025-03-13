@@ -18,7 +18,7 @@ class ZendeskTool(BaseTool):
             "description": "Create Zendesk customer support tickets",
             "schema": Schema(
                 {
-                    Literal("requeester_name"): str,
+                    Literal("requester_name"): str,
                     Literal("requester_email"): str,
                     Literal("subject"): str,
                     Literal("description"): str,
