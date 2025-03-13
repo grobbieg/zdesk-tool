@@ -43,7 +43,7 @@ class ZendeskTool(BaseTool):
 
             result = zendesk.ticket_create(data=new_ticket)
         except Exception as e:
-            return ErrorArtifact(f"error creating ticket: {e})
+            return ErrorArtifact(f"error creating ticket: {e}")
 
 def init_tool() -> ZendeskTool:
 
