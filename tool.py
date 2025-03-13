@@ -6,12 +6,6 @@ from griptape.utils.decorators import activity
 from zdesk import Zendesk
 
 class ZendeskTool(BaseTool):
-
-    zdesk_url = os.environ['ZENDESK_URL']
-    zdesk_email = os.environ['ZENDESK_EMAIL']
-    zdesk_password = os.environ['ZENDESK_PASSWORD']
-    zdesk_token = os.environ['ZENDESK_TOKEN'] 
-    zendesk = Zendesk(zdesk_url=zdesk_url, zdesk_password=zdesk_password, zdesk_email=zdesk_email, zdesk_token=zdesk_token)
          
     @activity(
         config={
@@ -28,6 +22,12 @@ class ZendeskTool(BaseTool):
     )
     def new_ticket(self, params: dict) -> BaseArtifact: 
         try:
+            zdesk_url = os.environ['ZENDESK_URL']
+            zdesk_email = os.environ['ZENDESK_EMAIL']
+            zdesk_password = os.environ['ZENDESK_PASSWORD']
+            zdesk_token = os.environ['ZENDESK_TOKEN'] 
+            zendesk = Zendesk(zdesk_url=zdesk_url, zdesk_password=zdesk_password, zdesk_email=zdesk_email, zdesk_token=zdesk_token)
+            
             requester_name = params["values"]["requester_name"]
             requester_email = params["values"]["requester_email"]
             subject = params["values"]["subject"]
